@@ -11,10 +11,10 @@ set -e
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
-MAGENTA='\033[0;34m'
+BLUE='\033[0;34m'
 NC='\033[0m'
 
-print_status() { echo -e "${MAGENTA}[*]${NC} $1"; }
+print_status() { echo -e "${BLUE}[*]${NC} $1"; }
 print_success() { echo -e "${GREEN}[+]${NC} $1"; }
 print_error() { echo -e "${RED}[-]${NC} $1"; }
 print_warning() { echo -e "${YELLOW}[!]${NC} $1"; }
@@ -211,6 +211,55 @@ pipx install impacket --force 2>&1 | grep -v "WARNING" || pip_install "impacket"
 print_success "Impacket installé"
 
 ################################################################################
+# 7. KERBRUTE
+################################################################################
+
+print_status "Installation de Kerbrute..."
+
+# Détecter l'architecture
+ARCH=$(uname -m)
+case "$ARCH" in
+    x86_64)
+        KERBRUTE_ARCH="amd64"
+        ;;
+    aarch64|arm64)
+        KERBRUTE_ARCH="arm64"
+        ;;
+    armv7l)
+        KERBRUTE_ARCH="arm"
+        ;;
+    *)
+        print_warning "Architecture non supportée pour Kerbrute: $ARCH"
+        KERBRUTE_ARCH="amd64"
+        ;;
+esac
+
+# Télécharger la dernière version
+KERBRUTE_VERSION="1.0.3"
+KERBRUTE_URL="https://github.com/ropnop/kerbrute/releases/download/v${KERBRUTE_VERSION}/kerbrute_linux_${KERBRUTE_ARCH}"
+
+cd /opt
+wget -q "$KERBRUTE_URL" -O kerbrute 2>/dev/null || curl -sL "$KERBRUTE_URL" -o kerbrute
+
+if [ -f "kerbrute" ]; then
+    chmod +x kerbrute
+    ln -sf /opt/kerbrute /usr/local/bin/kerbrute
+    print_success "Kerbrute installé"
+else
+    print_warning "Échec du téléchargement de Kerbrute"
+fi
+
+################################################################################
+# 8. LDAPDOMAINDUMP
+################################################################################
+
+print_status "Installation de ldapdomaindump..."
+
+pip_install "ldapdomaindump"
+
+print_success "ldapdomaindump installé"
+
+################################################################################
 # CONFIGURATION FINALE
 ################################################################################
 
@@ -253,9 +302,12 @@ echo "  [7] BloodHound.py       -> $(which bloodhound-python 2>/dev/null || echo
 echo "  [8] ridenum             -> /usr/local/bin/ridenum"
 echo "  [9] Impacket            -> $(which secretsdump.py 2>/dev/null || which impacket-secretsdump 2>/dev/null || echo '~/.local/bin/')"
 echo "  [10] dnsrecon/dnsenum   -> $(which dnsrecon 2>/dev/null || echo 'Non trouvé')"
+echo "  [11] Kerbrute           -> /usr/local/bin/kerbrute"
+echo "  [12] ldapdomaindump     -> $(which ldapdomaindump 2>/dev/null || echo '~/.local/bin/')"
+echo "  [13] GetUserSPNs.py     -> (Included in Impacket)"
 echo ""
 echo "IMPORTANT:"
-echo "  Rechargez votre shell: source ~/.bashrc (ou autre..)"
+echo "  Rechargez votre shell: source ~/.bashrc"
 echo "  Ou redémarrez votre terminal"
 echo ""
 echo "========================================================================"
