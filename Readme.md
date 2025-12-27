@@ -2,16 +2,6 @@
 
 **GhostLine** is an interactive bash toolkit that automates Active Directory enumeration by integrating 10+ professional security tools into a beautiful, easy-to-use interface. Inspired by the aesthetics of "Feed Your Spider", it provides both passive and active reconnaissance capabilities.
 
-### Why GhostLine?
-
-- **Beautiful Interface**: ASCII art and colored menus inspired by modern security tools
-- **All-in-One**: No need to remember dozens of commands
-- **Organized Results**: All outputs automatically saved in timestamped directories
-- **Automated Workflows**: Run complete reconnaissance with a single command
-- **Structured Navigation**: Hierarchical menus for easy access to specific tools
-
----
-
 ## Features
 
 ### Configuration Management
@@ -134,87 +124,6 @@ Main Menu → [3] Active Enumeration
 
 ---
 
-##  Usage Examples
-
-### Example 1: Initial Reconnaissance (No Credentials)
-
-```bash
-./ghostline.sh
-
-# Configuration
-[1] Configuration Menu
-    [1] Set Target: 10.10.10.100
-    [0] Back
-
-# Automated passive scan
-[4] Special Actions
-    [1] Auto Workflow
-
-# Output:
-# ✓ Nmap scan completed
-# ✓ SMB enumeration completed
-# ✓ RPC null session tested
-# ✓ LDAP anonymous bind tested
-# ✓ Results saved in: ad_enum_20231220_143022/
-```
-
-### Example 2: Authenticated Enumeration
-
-```bash
-# Configuration
-[1] Configuration Menu
-    [1] Set Target: dc01.corp.local
-    [2] Set Domain: corp.local
-    [3] Set Credentials
-        Username: john.doe
-        Password: P@ssw0rd123
-
-# Collect BloodHound data
-[3] Active Enumeration
-    [1] BloodHound Collection
-
-# Output:
-# ✓ Collecting domain data...
-# ✓ JSON files generated: computers.json, users.json, groups.json
-# ✓ Import into BloodHound GUI
-```
-
-### Example 3: Vulnerability Assessment
-
-```bash
-# SMB vulnerability scan
-[4] Special Actions
-    [2] SMB Vulnerabilities Scan
-
-# Output:
-# | smb-vuln-ms17-010:
-# |   VULNERABLE:
-# |   Remote Code Execution vulnerability in SMBv1
-# |     State: VULNERABLE
-# |     IDs:  CVE:CVE-2017-0143
-```
-
-### Example 4: Complete Pentest Workflow
-
-```bash
-# 1. Configure everything
-[1] Configuration → Set all parameters
-
-# 2. Passive reconnaissance
-[2] Passive Enumeration → Run all options [1-5]
-
-# 3. Active enumeration (if creds obtained)
-[3] Active Enumeration → Run all options [1-5]
-
-# 4. Advanced attacks
-[4] Special Actions → [2] SMB Vulns → [3] Secrets Dump
-
-# 5. Review results
-[4] Special Actions → [4] View Results
-```
-
----
-
 ##  Output Structure
 
 All results are saved in a timestamped directory:
@@ -275,13 +184,45 @@ Open an issue with:
 ---
 
 ### Tools Integrated
-- [Nmap](https://nmap.org/) by Gordon Lyon
-- [enum4linux-ng](https://github.com/cddmp/enum4linux-ng) by cddmp
-- [Impacket](https://github.com/SecureAuthCorp/impacket) by SecureAuth Corporation
-- [BloodHound](https://github.com/BloodHoundAD/BloodHound) by SpecterOps
-- [CrackMapExec](https://github.com/byt3bl33d3r/CrackMapExec) by byt3bl33d3r
-- [adidnsdump](https://github.com/dirkjanm/adidnsdump) by dirkjanm
-- [ridenum](https://github.com/trustedsec/ridenum) by TrustedSec
+
+- [Nmap](https://github.com/nmap/nmap) — by Gordon Lyon  
+  Network discovery and security auditing tool. Used with NSE scripts for SMB, LDAP, Kerberos and AD enumeration.
+
+- [enum4linux-ng](https://github.com/cddmp/enum4linux-ng) — by cddmp  
+  Modern SMB enumeration tool (users, groups, shares, policies).
+
+- [ldapsearch (OpenLDAP)](https://git.openldap.org/openldap/openldap)  
+  Native LDAP query utility for extracting domain objects and attributes.
+
+- [rpcclient (Samba)](https://github.com/samba-team/samba)  
+  RPC interaction tool for querying domain users, groups and SIDs via SMB.
+
+- [CrackMapExec](https://github.com/Porchetta-Industries/CrackMapExec) — by byt3bl33d3r  
+  Swiss army knife for Active Directory: SMB, LDAP, WinRM, MSSQL, and more.
+
+- [Impacket](https://github.com/SecureAuthCorp/impacket) — by SecureAuth Corporation  
+  Collection of Python scripts for low-level network protocol interaction. Includes tools such as GetUserSPNs.py and secretsdump.py.
+
+- [BloodHound](https://github.com/BloodHoundAD/BloodHound) — by SpecterOps  
+  Graph-based Active Directory attack path analysis. Uses bloodhound-python as the data ingestor.
+
+- [bloodhound-python](https://github.com/fox-it/BloodHound.py) — data ingestor  
+  CLI collector used by BloodHound.
+
+- [adidnsdump](https://github.com/dirkjanm/adidnsdump) — by dirkjanm  
+  Enumerates Active Directory–integrated DNS records via LDAP.
+
+- [ridenum](https://github.com/trustedsec/ridenum) — by TrustedSec  
+  RID cycling tool for enumerating domain users.
+
+- [dnsrecon](https://github.com/darkoperator/dnsrecon) — by DarkOperator  
+  DNS reconnaissance tool (alternative: dnsenum).
+
+- [Kerbrute](https://github.com/ropnop/kerbrute) — by ropnop  
+  Kerberos-based user enumeration and password spraying tool.
+
+- [ldapdomaindump](https://github.com/dirkjanm/ldapdomaindump) — by dirkjanm  
+  Dumps LDAP domain information into human-readable reports.
 
 ---
 
