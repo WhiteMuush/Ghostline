@@ -31,6 +31,8 @@
 
 ---
 
+![GhostlineImage](image.png)
+
 ## Installation
 
 ### Prerequisites
