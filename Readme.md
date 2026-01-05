@@ -31,7 +31,8 @@
 
 ---
 
-![GhostlineImage](image.png)
+<img width="1533" height="813" alt="Capture d’écran 2026-01-05 204247" src="https://github.com/user-attachments/assets/18893b4d-298e-4551-88fc-75314cfc9d21" />
+
 
 ## Installation
 
