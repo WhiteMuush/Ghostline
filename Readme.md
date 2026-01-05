@@ -1,4 +1,4 @@
-# GhostLine
+![Gif](https://github.com/user-attachments/assets/d71682ce-9cd3-4151-9f36-0a7b29d5985f)
 
 **GhostLine** is an interactive bash toolkit that automates Active Directory enumeration by integrating 10+ professional security tools into a beautiful, easy-to-use interface. Inspired by the aesthetics of "Feed Your Spider", it provides both passive and active reconnaissance capabilities.
 
