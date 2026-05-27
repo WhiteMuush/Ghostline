@@ -10,4 +10,4 @@ you agree to abide by its terms.
 
 To report a concern, contact the maintainer via the email address on
 their GitHub profile, or privately through
-[GitHub Security Advisories](https://github.com/WhiteMuush/GhostLine/security/advisories/new).
+[GitHub Security Advisories](https://github.com/WhiteMuush/Ghostline/security/advisories/new).

@@ -12,8 +12,8 @@ and merge.
 ## Local setup
 
 ```bash
-git clone https://github.com/WhiteMuush/GhostLine.git
-cd GhostLine
+git clone https://github.com/WhiteMuush/Ghostline.git
+cd Ghostline
 sudo ./install.sh        # installs every supported tool system-wide
 ./ghostline.sh           # launch the interactive menu
 ```

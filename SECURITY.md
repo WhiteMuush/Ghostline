@@ -23,7 +23,7 @@ Ghostline wraps (`nmap`, `enum4linux-ng`, `bloodhound-python`,
 
 **Please do not open a public issue.** Use one of the private channels:
 
-1. [GitHub Security Advisories](https://github.com/WhiteMuush/GhostLine/security/advisories/new)
+1. [GitHub Security Advisories](https://github.com/WhiteMuush/Ghostline/security/advisories/new)
    — preferred, lets us collaborate on a fix.
 2. Direct contact via the email address on the maintainer's GitHub
    profile.

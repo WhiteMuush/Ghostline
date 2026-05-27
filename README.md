@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-  <a href=".github/workflows/ci.yml"><img alt="CI" src="https://github.com/WhiteMuush/GhostLine/actions/workflows/ci.yml/badge.svg"></a>
+  <a href=".github/workflows/ci.yml"><img alt="CI" src="https://github.com/WhiteMuush/Ghostline/actions/workflows/ci.yml/badge.svg"></a>
   <a href="CONTRIBUTING.md"><img alt="PRs welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"></a>
   <a href="https://github.com/koalaman/shellcheck"><img alt="Shellcheck" src="https://img.shields.io/badge/lint-shellcheck-blue.svg"></a>
 </p>
@@ -82,8 +82,8 @@ git clone https://github.com/trustedsec/ridenum.git   /opt/ridenum
 ### Installing Ghostline
 
 ```bash
-git clone https://github.com/WhiteMuush/GhostLine.git
-cd GhostLine
+git clone https://github.com/WhiteMuush/Ghostline.git
+cd Ghostline
 chmod +x ghostline.sh
 ./ghostline.sh
 ```
