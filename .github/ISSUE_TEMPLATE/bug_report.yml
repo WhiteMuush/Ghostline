@@ -1,0 +1,82 @@
+name: Bug report
+description: Report a bug or unexpected behavior in Ghostline
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: One or two sentences describing the bug.
+      placeholder: "RID enumeration crashes when target is unreachable."
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Ghostline version
+      description: "Commit SHA or release tag. Run `git rev-parse --short HEAD` in the repo root."
+      placeholder: "e.g. v1.0.0 or abc1234"
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      description: "Distribution and version."
+      placeholder: "e.g. Kali Linux 2025.3"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: module
+    attributes:
+      label: Affected module
+      options:
+        - lib/core.sh
+        - lib/ui.sh
+        - lib/installer.sh
+        - lib/modules/config.sh
+        - lib/modules/passive.sh
+        - lib/modules/active.sh
+        - lib/modules/special.sh
+        - install.sh
+        - ghostline.sh (entry point)
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Exact menu path, inputs, and target configuration.
+      placeholder: |
+        1. Launch ./ghostline.sh
+        2. Main Menu → [3] Active Enumeration → [5] RID Enumeration
+        3. Target was set to 10.10.10.10 (offline)
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Paste error output. Use code fences (```) for logs.
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional context
+      description: Logs, screenshots, related issues — anything else that helps.

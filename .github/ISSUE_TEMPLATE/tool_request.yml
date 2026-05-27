@@ -1,0 +1,57 @@
+name: Tool request
+description: Propose a new tool or module for Ghostline
+title: "[Tool] "
+labels: ["enhancement", "tool-request"]
+body:
+  - type: input
+    id: tool_name
+    attributes:
+      label: Tool name
+      placeholder: "e.g. certipy"
+    validations:
+      required: true
+
+  - type: input
+    id: tool_url
+    attributes:
+      label: Upstream URL
+      placeholder: "https://github.com/ly4k/Certipy"
+    validations:
+      required: true
+
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why this tool fits Ghostline
+      description: How does it help with Active Directory enumeration or exploitation?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: target_module
+    attributes:
+      label: Suggested module placement
+      options:
+        - lib/modules/passive.sh
+        - lib/modules/active.sh
+        - lib/modules/special.sh
+        - New module
+    validations:
+      required: true
+
+  - type: textarea
+    id: install_hint
+    attributes:
+      label: Installation hint
+      description: How is the tool installed on Debian/Kali? (apt, pipx, git clone, ...)
+      placeholder: |
+        pipx install certipy-ad
+    validations:
+      required: true
+
+  - type: textarea
+    id: example_usage
+    attributes:
+      label: Example invocation
+      description: A representative command, ideally usable as the body of the new module function.
+      render: bash

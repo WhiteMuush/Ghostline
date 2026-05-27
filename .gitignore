@@ -1,0 +1,38 @@
+# Enumeration output directories
+ad_enum_*/
+output/
+results/
+
+# Editor / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Python (in case modules grow Python tooling later)
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Logs and tmp
+*.log
+*.tmp
+*.bak
+
+# Tooling internals (project-local Claude instructions, graph dumps)
+CLAUDE.md
+graphify-out/
+
+# Credentials and secrets — defensive, never commit
+*.key
+*.pem
+*.crt
+.env
+.env.*
+!.env.example

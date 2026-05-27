@@ -1,0 +1,99 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  shellcheck:
+    name: ShellCheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run shellcheck
+        uses: ludeeus/action-shellcheck@master
+        env:
+          SHELLCHECK_OPTS: -e SC1091 -e SC2034 -e SC2154
+        with:
+          severity: warning
+          ignore_paths: >-
+            graphify-out
+
+  syntax:
+    name: bash -n
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Syntax check every shell script
+        shell: bash
+        run: |
+          set -euo pipefail
+          failed=0
+          while IFS= read -r -d '' file; do
+              if ! bash -n "$file"; then
+                  echo "SYNTAX ERROR: $file"
+                  failed=1
+              fi
+          done < <(find . -name '*.sh' -not -path './.git/*' -print0)
+          exit "$failed"
+
+  smoke:
+    name: Source chain smoke test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify expected functions are exported
+        shell: bash
+        run: |
+          set -uo pipefail
+          # shellcheck disable=SC1091
+          source ./lib/core.sh
+          # shellcheck disable=SC1091
+          source ./lib/installer.sh
+          # shellcheck disable=SC1091
+          source ./lib/ui.sh
+          # shellcheck disable=SC1091
+          source ./lib/modules/config.sh
+          # shellcheck disable=SC1091
+          source ./lib/modules/passive.sh
+          # shellcheck disable=SC1091
+          source ./lib/modules/active.sh
+          # shellcheck disable=SC1091
+          source ./lib/modules/special.sh
+
+          expected=(
+            log_step log_info log_warn log_error log_success
+            prompt_value prompt_password prompt_yesno press_enter_to_continue
+            ensure_command resolve_command
+            clone_or_pull pip_install pipx_install apt_install
+            generate_main_menu generate_config_menu generate_passive_menu
+            generate_active_menu generate_special_menu
+            display_banner_with_menu display_title_middle_screen prompt_menu_choice
+            require_target require_domain require_credentials ensure_output_dir
+            handle_config_menu handle_passive_menu handle_active_menu handle_special_menu
+            passive_run_nmap passive_run_enum4linux passive_run_rpc
+            passive_run_ldap passive_run_dns
+            active_run_bloodhound active_run_cme active_run_adidns
+            active_run_getnpusers active_run_ridenum
+            special_run_workflow special_run_smb_vulns special_run_secretsdump
+            special_view_results
+          )
+
+          missing=0
+          for fn in "${expected[@]}"; do
+              if ! declare -F "$fn" >/dev/null; then
+                  echo "MISSING: $fn"
+                  missing=$((missing+1))
+              fi
+          done
+
+          if (( missing > 0 )); then
+              echo "Smoke test FAILED: $missing function(s) missing"
+              exit 1
+          fi
+          echo "Smoke test PASSED — ${#expected[@]} functions present"
