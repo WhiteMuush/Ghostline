@@ -29,7 +29,10 @@ lib/
 └── PULL_REQUEST_TEMPLATE.md
 docs/
 ├── ARCHITECTURE.md         This document.
-└── ADDING_A_TOOL.md        How to plug in a new tool.
+├── ADDING_A_TOOL.md        How to plug in a new tool.
+├── CONTRIBUTING.md         Local setup, conventions, PR checklist.
+├── CODE_OF_CONDUCT.md      Community standards.
+└── SECURITY.md             Private vulnerability disclosure.
 ```
 
 ---

@@ -48,8 +48,8 @@ lib/modules/active.sh      Authenticated enumeration.
 lib/modules/special.sh     Workflows, vuln scans, secrets dump.
 ```
 
-See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the full description
-and [docs/ADDING_A_TOOL.md](docs/ADDING_A_TOOL.md) if you want to plug in
+See [ARCHITECTURE.md](ARCHITECTURE.md) for the full description
+and [ADDING_A_TOOL.md](ADDING_A_TOOL.md) if you want to plug in
 a new tool.
 
 ---

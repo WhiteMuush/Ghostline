@@ -3,7 +3,7 @@
 <p align="center">
   <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
   <a href=".github/workflows/ci.yml"><img alt="CI" src="https://github.com/WhiteMuush/Ghostline/actions/workflows/ci.yml/badge.svg"></a>
-  <a href="CONTRIBUTING.md"><img alt="PRs welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"></a>
+  <a href="docs/CONTRIBUTING.md"><img alt="PRs welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"></a>
   <a href="https://github.com/koalaman/shellcheck"><img alt="Shellcheck" src="https://img.shields.io/badge/lint-shellcheck-blue.svg"></a>
 </p>
 
@@ -146,7 +146,10 @@ lib/
     └── special.sh         Workflows, vuln scans, secrets dump.
 docs/
 ├── ARCHITECTURE.md        Layout, boot sequence, helpers, CI.
-└── ADDING_A_TOOL.md       Recipe for plugging in a new tool.
+├── ADDING_A_TOOL.md       Recipe for plugging in a new tool.
+├── CONTRIBUTING.md        Local setup, conventions, PR checklist.
+├── CODE_OF_CONDUCT.md     Community standards.
+└── SECURITY.md            Private vulnerability disclosure.
 .github/
 ├── workflows/ci.yml       shellcheck + bash -n + smoke test.
 ├── ISSUE_TEMPLATE/        Structured bug and tool-request forms.
@@ -154,7 +157,7 @@ docs/
 ```
 
 See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for details and
-[CONTRIBUTING.md](CONTRIBUTING.md) for the contribution workflow.
+[docs/CONTRIBUTING.md](docs/CONTRIBUTING.md) for the contribution workflow.
 
 ---
 
@@ -201,15 +204,15 @@ nmap -iL nmap_ad.xml --resume
 
 ## Contributing
 
-Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for the
+Contributions are welcome. See [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md) for the
 local setup, the conventions and the PR checklist. To plug in a new tool,
 [docs/ADDING_A_TOOL.md](docs/ADDING_A_TOOL.md) walks through the recipe in
 under a page.
 
 - Bug reports and tool requests use the templates in
   [.github/ISSUE_TEMPLATE/](.github/ISSUE_TEMPLATE/).
-- Security issues should be reported privately — see
-  [SECURITY.md](SECURITY.md).
+- Security issues should be reported privately, see
+  [docs/SECURITY.md](docs/SECURITY.md).
 
 ---
 
