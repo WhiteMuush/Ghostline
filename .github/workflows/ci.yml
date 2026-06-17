@@ -69,7 +69,7 @@ jobs:
           expected=(
             log_step log_info log_warn log_error log_success
             prompt_value prompt_password prompt_yesno press_enter_to_continue
-            ensure_command resolve_command
+            ensure_command resolve_command domain_to_basedn
             clone_or_pull pip_install pipx_install apt_install
             generate_main_menu generate_config_menu generate_passive_menu
             generate_active_menu generate_special_menu

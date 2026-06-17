@@ -34,7 +34,8 @@ special_run_workflow() {
 
     if [[ -n "${GHOSTLINE_DOMAIN}" ]] && ensure_command "ldapsearch" "sudo apt install ldap-utils"; then
         log_step "Phase 4: LDAP Query"
-        local base_dn="dc=${GHOSTLINE_DOMAIN//./,dc=}"
+        local base_dn
+        base_dn=$(domain_to_basedn "${GHOSTLINE_DOMAIN}")
         ldapsearch -x -H "ldap://${GHOSTLINE_TARGET}" -b "${base_dn}" "(objectclass=user)" \
             > "${GHOSTLINE_OUTPUT_DIR}/ldap.txt" 2>/dev/null
     fi

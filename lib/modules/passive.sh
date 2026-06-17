@@ -6,12 +6,6 @@ if [[ -n "${GHOSTLINE_MODULE_PASSIVE_LOADED:-}" ]]; then
 fi
 GHOSTLINE_MODULE_PASSIVE_LOADED=1
 
-# Convert a dotted domain (corp.local) into an LDAP base DN (dc=corp,dc=local).
-_domain_to_basedn() {
-    local domain="$1"
-    printf 'dc=%s' "${domain//./,dc=}"
-}
-
 passive_run_nmap() {
     printf '\n%bNmap Scan%b\n' "${BRIGHT_MAGENTA}" "${RESET}"
     require_target
@@ -60,7 +54,7 @@ passive_run_ldap() {
     ensure_command "ldapsearch" "sudo apt install ldap-utils" || return 0
     ensure_output_dir
     local base_dn
-    base_dn=$(_domain_to_basedn "${GHOSTLINE_DOMAIN}")
+    base_dn=$(domain_to_basedn "${GHOSTLINE_DOMAIN}")
     log_step "Querying LDAP (base ${base_dn})..."
     ldapsearch -x -H "ldap://${GHOSTLINE_TARGET}" -b "${base_dn}" "(objectclass=*)" \
         | tee "${GHOSTLINE_OUTPUT_DIR}/ldap.txt"

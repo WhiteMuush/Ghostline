@@ -54,3 +54,12 @@ GHOSTLINE_OUTPUT_DIR="ad_enum_$(date +%Y%m%d_%H%M%S)"
 
 # Where third-party tools may be cloned by install.sh.
 GHOSTLINE_TOOLS_DIR="${GHOSTLINE_TOOLS_DIR:-/opt}"
+
+# ---------------------------------------------------------------------------
+# Shared helpers used across modules.
+# ---------------------------------------------------------------------------
+# Convert a dotted domain (corp.local) into an LDAP base DN (dc=corp,dc=local).
+domain_to_basedn() {
+    local domain="$1"
+    printf 'dc=%s' "${domain//./,dc=}"
+}
