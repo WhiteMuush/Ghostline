@@ -56,6 +56,22 @@ ID_LIKE="fedora"')"
     [[ "$output" == *"sleep infinity"* ]]
 }
 
+@test "box_name: shared by default" {
+    unset PENTEST_BOX_NAME PENTEST_BOX_DEDICATED
+    [ "$(_box_name Ghostline)" = "pentest-toolbox" ]
+}
+
+@test "box_name: dedicated gives one box per toolkit" {
+    unset PENTEST_BOX_NAME
+    export PENTEST_BOX_DEDICATED=1
+    [ "$(_box_name Ghostline)" = "pentest-ghostline" ]
+}
+
+@test "box_name: an explicit PENTEST_BOX_NAME wins" {
+    export PENTEST_BOX_NAME=custom-box PENTEST_BOX_DEDICATED=1
+    [ "$(_box_name Ghostline)" = "custom-box" ]
+}
+
 @test "box exec args: marker env and the toolkit's own entry script" {
     run _box_exec_args pentest-toolbox /opt/toolkits/Ghostline/ghostline.sh
     [[ "$output" == *"PENTEST_IN_BOX=1"* ]]
