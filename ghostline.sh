@@ -11,6 +11,8 @@ readonly SCRIPT_DIR
 source "${SCRIPT_DIR}/lib/core.sh"
 # shellcheck source=lib/installer.sh
 source "${SCRIPT_DIR}/lib/installer.sh"
+# shellcheck source=lib/compat.sh
+source "${SCRIPT_DIR}/lib/compat.sh"
 # shellcheck source=lib/ui.sh
 source "${SCRIPT_DIR}/lib/ui.sh"
 # shellcheck source=lib/modules/config.sh
@@ -50,4 +52,7 @@ main_loop() {
     done
 }
 
+# On a non-Debian host, offer to run inside the shared Debian box. This may
+# replace the current process with the containerised run and never return.
+compat_gate "${SCRIPT_DIR}" ghostline.sh Ghostline
 main_loop "$@"
