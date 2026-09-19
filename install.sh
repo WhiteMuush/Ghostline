@@ -175,6 +175,7 @@ install_ldapdomaindump() {
 configure_path() {
     log_step "Configuring PATH..."
     if ! grep -q ".local/bin" /root/.bashrc 2>/dev/null; then
+        # shellcheck disable=SC2016  # $PATH/$HOME must stay literal, expanded at shell startup
         echo 'export PATH="$PATH:$HOME/.local/bin:/root/.local/bin"' >> /root/.bashrc
     fi
 
@@ -183,6 +184,7 @@ configure_path() {
         user_home=$(getent passwd "$SUDO_USER" | cut -d: -f6)
         if [[ -f "${user_home}/.bashrc" ]]; then
             if ! grep -q ".local/bin" "${user_home}/.bashrc"; then
+                # shellcheck disable=SC2016  # $PATH/$HOME must stay literal, expanded at shell startup
                 echo 'export PATH="$PATH:$HOME/.local/bin"' >> "${user_home}/.bashrc"
                 chown "${SUDO_USER}:${SUDO_USER}" "${user_home}/.bashrc"
             fi
