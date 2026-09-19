@@ -14,6 +14,9 @@ and active enumeration (with credentials).
 
 ## Features
 
+### Cross-distro
+- On a Debian/Kali-family host Ghostline runs natively. On any other distro (Fedora, Arch, atomic distros) it offers to run inside one shared, lightweight Debian box (`debian:stable-slim`) via podman or docker, reused across toolkits. See [docs/DISTRO_COMPAT.md](docs/DISTRO_COMPAT.md).
+
 ### Configuration management
 - Persistent target configuration (IP / hostname, domain, credentials).
 - Custom output directory naming.
