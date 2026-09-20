@@ -12,7 +12,7 @@ passive_run_nmap() {
     ensure_command "nmap" "sudo apt install nmap" || return 0
     ensure_output_dir
     log_step "Scanning AD ports on ${GHOSTLINE_TARGET}..."
-    nmap -p 88,135,139,389,445,464,636,3268,3269,5985 -sV -sC \
+    safe_nmap -p 88,135,139,389,445,464,636,3268,3269,5985 -sV -sC \
         -oA "${GHOSTLINE_OUTPUT_DIR}/nmap_ad" "${GHOSTLINE_TARGET}"
     log_success "Results saved to ${GHOSTLINE_OUTPUT_DIR}/nmap_ad.*"
     press_enter_to_continue

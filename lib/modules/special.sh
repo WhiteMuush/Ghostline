@@ -15,7 +15,7 @@ special_run_workflow() {
 
     if ensure_command "nmap" "sudo apt install nmap"; then
         log_step "Phase 1: Network Scan"
-        nmap -p 88,135,139,389,445 -sV "${GHOSTLINE_TARGET}" \
+        safe_nmap -p 88,135,139,389,445 -sV "${GHOSTLINE_TARGET}" \
             -oA "${GHOSTLINE_OUTPUT_DIR}/nmap" 2>/dev/null
     fi
 
@@ -51,7 +51,7 @@ special_run_smb_vulns() {
     ensure_command "nmap" "sudo apt install nmap" || return 0
     ensure_output_dir
     log_step "Scanning for SMB vulnerabilities..."
-    nmap -p 445 --script 'smb-vuln*' "${GHOSTLINE_TARGET}" \
+    safe_nmap -p 445 --script 'smb-vuln*' "${GHOSTLINE_TARGET}" \
         -oA "${GHOSTLINE_OUTPUT_DIR}/smb_vulns"
     log_success "Vulnerability scan complete"
     press_enter_to_continue
