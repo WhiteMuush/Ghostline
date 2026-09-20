@@ -61,7 +61,7 @@ a new tool.
 - `#!/usr/bin/env bash` shebang on every executable script.
 - Strict mode at the entry point only: `set -uo pipefail` for the
   interactive `ghostline.sh`, `set -euo pipefail` for the non-interactive
-  `install.sh`. **Do not** add `set -e` to interactive menus — a single
+  `install.sh`. **Do not** add `set -e` to interactive menus, a single
   non-zero exit code kills the whole loop.
 - Always quote variable expansions: `"${var}"`, not `$var`.
 - Function names are `snake_case` and prefixed by their module:
@@ -78,7 +78,7 @@ a new tool.
 
 ### Language
 
-Every file in the repository is **English only** — code, comments, log
+Every file in the repository is **English only**, code, comments, log
 messages, prompts, README, docs, commit messages. PRs that introduce
 non-English content will be asked to translate before merge.
 

@@ -7,7 +7,7 @@ of the operator.
 
 ## Scope of this policy
 
-This policy covers vulnerabilities **in the Ghostline wrapper itself** —
+This policy covers vulnerabilities **in the Ghostline wrapper itself**,
 the entry point, the library, the menus and the installer. Examples:
 
 - Command injection via a configuration field that isn't properly quoted.
@@ -24,7 +24,7 @@ Ghostline wraps (`nmap`, `enum4linux-ng`, `bloodhound-python`,
 **Please do not open a public issue.** Use one of the private channels:
 
 1. [GitHub Security Advisories](https://github.com/WhiteMuush/Ghostline/security/advisories/new)
-   — preferred, lets us collaborate on a fix.
+  , preferred, lets us collaborate on a fix.
 2. Direct contact via the email address on the maintainer's GitHub
    profile.
 
@@ -32,7 +32,7 @@ Include:
 
 - The Ghostline version (commit SHA or release tag).
 - A clear description of the issue and the impact.
-- A reproduction recipe — exact menu path, target setup, payload.
+- A reproduction recipe, exact menu path, target setup, payload.
 - (Optional) a suggested fix.
 
 ## What to expect

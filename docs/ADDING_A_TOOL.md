@@ -1,7 +1,7 @@
 # Adding a tool to Ghostline
 
 Most contributions add a new tool to one of the existing modules. The
-process is intentionally short — a single function, a single menu line,
+process is intentionally short, a single function, a single menu line,
 optionally a few lines in `install.sh`.
 
 This document walks through the recipe step by step.
