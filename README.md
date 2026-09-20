@@ -221,34 +221,34 @@ under a page.
 
 ## Tools integrated
 
-- [Nmap](https://github.com/nmap/nmap) — by Gordon Lyon
+- [Nmap](https://github.com/nmap/nmap), by Gordon Lyon
   Network discovery and security auditing tool. Used with NSE scripts for
   SMB, LDAP, Kerberos and AD enumeration.
-- [enum4linux-ng](https://github.com/cddmp/enum4linux-ng) — by cddmp
+- [enum4linux-ng](https://github.com/cddmp/enum4linux-ng), by cddmp
   Modern SMB enumeration tool (users, groups, shares, policies).
 - [ldapsearch (OpenLDAP)](https://git.openldap.org/openldap/openldap)
   Native LDAP query utility for extracting domain objects and attributes.
 - [rpcclient (Samba)](https://github.com/samba-team/samba)
   RPC interaction tool for querying domain users, groups and SIDs via SMB.
-- [CrackMapExec](https://github.com/Porchetta-Industries/CrackMapExec) — by byt3bl33d3r
+- [CrackMapExec](https://github.com/Porchetta-Industries/CrackMapExec), by byt3bl33d3r
   Swiss army knife for Active Directory: SMB, LDAP, WinRM, MSSQL, and more.
-- [Impacket](https://github.com/SecureAuthCorp/impacket) — by SecureAuth
+- [Impacket](https://github.com/SecureAuthCorp/impacket), by SecureAuth
   Collection of Python scripts for low-level network protocol interaction.
   Includes `GetUserSPNs.py` and `secretsdump.py`.
-- [BloodHound](https://github.com/BloodHoundAD/BloodHound) — by SpecterOps
+- [BloodHound](https://github.com/BloodHoundAD/BloodHound), by SpecterOps
   Graph-based Active Directory attack path analysis. Uses bloodhound-python
   as the data ingestor.
-- [bloodhound-python](https://github.com/fox-it/BloodHound.py) — data ingestor
+- [bloodhound-python](https://github.com/fox-it/BloodHound.py), data ingestor
   CLI collector used by BloodHound.
-- [adidnsdump](https://github.com/dirkjanm/adidnsdump) — by dirkjanm
-  Enumerates Active Directory–integrated DNS records via LDAP.
-- [ridenum](https://github.com/trustedsec/ridenum) — by TrustedSec
+- [adidnsdump](https://github.com/dirkjanm/adidnsdump), by dirkjanm
+  Enumerates Active Directory-integrated DNS records via LDAP.
+- [ridenum](https://github.com/trustedsec/ridenum), by TrustedSec
   RID cycling tool for enumerating domain users.
-- [dnsrecon](https://github.com/darkoperator/dnsrecon) — by DarkOperator
+- [dnsrecon](https://github.com/darkoperator/dnsrecon), by DarkOperator
   DNS reconnaissance tool (alternative: dnsenum).
-- [Kerbrute](https://github.com/ropnop/kerbrute) — by ropnop
+- [Kerbrute](https://github.com/ropnop/kerbrute), by ropnop
   Kerberos-based user enumeration and password spraying tool.
-- [ldapdomaindump](https://github.com/dirkjanm/ldapdomaindump) — by dirkjanm
+- [ldapdomaindump](https://github.com/dirkjanm/ldapdomaindump), by dirkjanm
   Dumps LDAP domain information into human-readable reports.
 
 ---

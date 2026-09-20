@@ -153,9 +153,9 @@ passive_run_<tool>() {
 
 Three jobs run on every push and PR:
 
-1. `shellcheck` — `severity: warning`, with
+1. `shellcheck`: `severity: warning`, with
    `SHELLCHECK_OPTS: -e SC1091 -e SC2034 -e SC2154`.
-2. `bash -n` — syntax check on every `.sh` in the tree.
-3. Smoke test — sources the full `lib/` chain and asserts that every
+2. `bash -n`: syntax check on every `.sh` in the tree.
+3. Smoke test, sources the full `lib/` chain and asserts that every
    public function from `core.sh`, `installer.sh`, `ui.sh` and the four
    modules is defined.
