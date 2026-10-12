@@ -22,7 +22,7 @@ sudo ./install.sh   # Debian / Ubuntu / Kali: pulls every supported tool
 ```
 
 On a Debian/Kali host Ghostline runs natively. On Fedora, Arch or an atomic
-distro (Bazzite, Silverblue) it offers a shared Debian box (podman/docker) and
+distro (Bazzite, Silverblue) it offers a per-toolkit Debian box (podman/docker) and
 reuses it across toolkits. Inside that box nmap falls back to an unprivileged
 connect scan automatically, so a scan never dies on a missing raw socket. See
 [docs/DISTRO_COMPAT.md](docs/DISTRO_COMPAT.md).
