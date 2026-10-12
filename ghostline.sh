@@ -52,7 +52,7 @@ main_loop() {
     done
 }
 
-# On a non-Debian host, offer to run inside the shared Debian box. This may
+# On a non-Debian host, offer to run inside its own Debian box. This may
 # replace the current process with the containerised run and never return.
 compat_gate "${SCRIPT_DIR}" ghostline.sh Ghostline
 main_loop "$@"
